@@ -7,10 +7,13 @@ print("ようこそ！ロシアンルーレットゲームへ！", flush=True)
 print("さっそくゲームを始めよう！", flush=True)
 print("心の準備がつかない？では何度かシミュレーションをしてみるとしようか", flush=True)
 
-seed = random.randint(1, 10)
+# 乱数でシードを決める
+seed = random.randint(1, 100)
 rng = random.Random(seed)
 
+# 10回シミュレーション
 history = [rng.randint(1, 10) for _ in range(10)]
+# ここでは1を選んだこととする、死んだ回数をカウント
 death_count = len(history) - history.count(1)
 
 print("\n=== シミュレーション結果 ===", flush=True)
@@ -31,6 +34,7 @@ if not 1 <= guess <= 10:
     print("1〜10の数字を入力してください。", flush=True)
     exit()
 
+# この数字を当てれば生還
 answer = rng.randint(1, 10)
 
 if guess == answer:

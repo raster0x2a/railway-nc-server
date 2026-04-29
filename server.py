@@ -11,7 +11,7 @@ seed = random.randint(1, 10)
 rng = random.Random(seed)
 
 history = [rng.randint(1, 10) for _ in range(10)]
-death_count = history.count(1)
+death_count = len(history) - history.count(1)
 
 print("\n=== シミュレーション結果 ===", flush=True)
 for i, n in enumerate(history, 1):
@@ -19,7 +19,7 @@ for i, n in enumerate(history, 1):
 
 print(f"\nもし本番なら君は {death_count} 回は死んだね", flush=True)
 print("さあ本番だ", flush=True)
-print("1〜10の数字を入力してください:", flush=True)
+print("1〜10の数字を入力してください:", end="", flush=True)
 
 try:
     guess = int(input())
